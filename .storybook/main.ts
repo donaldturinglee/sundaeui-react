@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
+import path from "path";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -17,6 +18,13 @@ const config: StorybookConfig = {
   webpackFinal: async (config, { configType }) => {
     if (configType === 'DEVELOPMENT') {
       // Modify config for development
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@components': path.resolve(__dirname, '../src/components'),
+        '@styles': path.resolve(__dirname, '../src/styles'),
+        '@utilities': path.resolve(__dirname, '../src/utilities'),
+      };
+
       config.module.rules.push({
         test: /\.s[ac]ss$/i,
         use: [
