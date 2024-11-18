@@ -39,6 +39,12 @@ const config: StorybookConfig = {
     }
     if (configType === 'PRODUCTION') {
       // Modify config for production
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        '@components': path.resolve(__dirname, '../src/components'),
+        '@styles': path.resolve(__dirname, '../src/styles'),
+        '@utilities': path.resolve(__dirname, '../src/utilities'),
+      };
     }
     return config;
   },
