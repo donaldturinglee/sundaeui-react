@@ -10,7 +10,7 @@
     "rollup": "rollup -c --bundleConfigAsCjs",
     "storybook": "storybook dev -p 9001",
     "build:docs": "storybook build -o docs",
-    "test": "jest",
+    "test": "jest"
   },
   "keywords": [
     "Sundae UI",
