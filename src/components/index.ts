@@ -3,3 +3,4 @@ export * from "./box";
 export * from "./heading";
 export * from "./text";
 export * from "./paragraph";
+export * from "./link";
